@@ -3,11 +3,11 @@
 //Name -
 //Date -
 
-public class JavaStringLabRunner
+public class VowelsRunner
 {
 	public static void main( String args[] )
 	{
-		BetweenSigns s = new BetweenSigns();
+		FirstLastVowel s = new FirstLastVowel();
 			
 		System.out.println(  s.go(  "dog#cat#pigaplus")    );
 		System.out.println(  s.go(  "pigs#apluscompsci#food")    );
@@ -19,7 +19,9 @@ public class JavaStringLabRunner
 		System.out.println(  s.go(  "##wowgira77##eplus")    );
 		System.out.println(  s.go(  "catsandaplusdogsaplus###")    );
 		System.out.println(  s.go(  "7")    );
-
+		System.out.println(  s.go(  "a")    );
+		System.out.println(  s.go(  "E")    );
+		System.out.println(  s.go(  "9AEIOUaeiou8")    );
 	}
 }
 
