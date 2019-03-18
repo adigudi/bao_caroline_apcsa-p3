@@ -79,7 +79,9 @@ public class Deck {
 			shuffleIndex = (int)(Math.random()*(i+1));
 			copyValue = cards.get(shuffleIndex);
 			cards.add(shuffleIndex, cards.get(i));
+			cards.remove(shuffleIndex+1);
 			cards.add(i, copyValue);
+			cards.remove(i+1);
 		}
 		
 		size=cards.size();
