@@ -547,6 +547,9 @@ public class Picture extends SimplePicture
 				  change[row+1][col+1]=1;
 				  change[row+2][col+1]=1;
 			  }
+			  
+			  
+			  
 		  }
 	  }
 	  

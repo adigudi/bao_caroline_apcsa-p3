@@ -96,8 +96,8 @@ public class Ball extends Block implements Collidable
 		return (getX() <= (other.getX() + other.getWidth() + Math.abs(getXSpeed()))
 				&& getX() > (other.getX() - getWidth() - Math.abs(getXSpeed()))
 				&& getX()>=(other.getX())
-				&& getY()<=(other.getY()+other.getHeight())
-				&& (getY()+getHeight())>=other.getY());
+				&& getY()<(other.getY()+other.getHeight())
+				&& (getY()+getHeight())>other.getY());
 	}
 	
 	public boolean didCollideRight(Object obj)
@@ -106,8 +106,8 @@ public class Ball extends Block implements Collidable
 		return (getX() < (other.getX() + other.getWidth() + Math.abs(getXSpeed()))
 				&& getX() >= (other.getX() - getWidth() - Math.abs(getXSpeed()))
 				&& getX()<=other.getX()+other.getWidth()
-				&& getY()<=(other.getY()+other.getHeight())
-				&& (getY()+getHeight())>=other.getY());
+				&& getY()<(other.getY()+other.getHeight())
+				&& (getY()+getHeight())>other.getY());
 	}
 	
 	public boolean didCollideTop(Object obj)

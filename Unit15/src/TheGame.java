@@ -7,15 +7,15 @@ import java.awt.Component;
 
 public class TheGame extends JFrame
 {
-	private static final int WIDTH = 800;
-	private static final int HEIGHT = 600;
+	private static final int WIDTH = 805;
+	private static final int HEIGHT = 585;
 
 	public TheGame()
 	{
 		super("PONG");
 		setSize(WIDTH,HEIGHT);
 
-		Pong game = new Pong();
+		PongExtension game = new PongExtension();
 
 		((Component)game).setFocusable(true);
 		getContentPane().add(game);
