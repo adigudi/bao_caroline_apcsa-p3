@@ -23,7 +23,7 @@ public class PongExtension extends Canvas implements KeyListener, Runnable
 
 	public PongExtension()
 	{
-		ball=new Ball(200, 200, 10, 10, Color.BLUE, 3, 2);
+		ball=new Ball(200, 200, 10, 10, Color.BLUE, 1, 1);
 		paddle=new PaddleExtension(375, 275, 40, 40, Color.ORANGE, 2);
 		keys = new boolean[4];
 		erase=new Block(400, 530, 200, 60, Color.BLACK);
@@ -106,7 +106,7 @@ public class PongExtension extends Canvas implements KeyListener, Runnable
 			ball.draw(graphToBack, Color.WHITE);
 			paddle.setSpeed(0);
 			paddle.draw(graphToBack, Color.WHITE);
-			ball = new Ball(200, 200, 10, 10, Color.BLUE, (int)(3*Math.pow(-1, (int)(Math.random()*2))), 2); 
+			ball = new Ball(200, 200, 10, 10, Color.BLUE, 1, 1); //(int)(3*Math.pow(-1, (int)(Math.random()*2))), 2); 
 			paddle=new PaddleExtension(375, 275, 40, 40, Color.ORANGE, 2);
 			setNewSideBlocks();
 		}
@@ -137,6 +137,7 @@ public class PongExtension extends Canvas implements KeyListener, Runnable
 			}
 			else
 			{
+				System.out.print("left");
 				ball.setXSpeed(Math.abs(ball.getXSpeed()));
 
 			}
@@ -151,6 +152,7 @@ public class PongExtension extends Canvas implements KeyListener, Runnable
 			}
 			else
 			{
+				System.out.print("right");
 				ball.setXSpeed(-1*Math.abs(ball.getXSpeed()));
 			}
 		}
@@ -160,11 +162,13 @@ public class PongExtension extends Canvas implements KeyListener, Runnable
 		{
 			if (ball.getY()>=(paddle.getY()+paddle.getHeight()+Math.abs(ball.getYSpeed())))
 			{
-				ball.setXSpeed(-1*Math.abs(ball.getXSpeed()));
+				ball.setXSpeed(-Math.abs(ball.getXSpeed()));
 			}
 			else
 			{
-				ball.setYSpeed(-1*Math.abs(ball.getYSpeed()));
+
+				System.out.print("top");
+				ball.setYSpeed(-Math.abs(ball.getYSpeed()));
 
 			}		
 		}
@@ -178,6 +182,7 @@ public class PongExtension extends Canvas implements KeyListener, Runnable
 			}
 			else
 			{
+				System.out.print("bottom");
 				ball.setYSpeed(Math.abs(ball.getYSpeed()));
 
 			}
@@ -224,7 +229,7 @@ public class PongExtension extends Canvas implements KeyListener, Runnable
 			if (!paddleToBlock) paddle.moveUpAndDraw(graphToBack);
 		}
 		
-		if (keys[1]==true && paddle.getY()<(600-paddle.getHeight()-20))
+		if (keys[1]==true && paddle.getY()<(wall.getHeight()-paddle.getHeight()-20))
 		{	
 			boolean paddleToBlock=false;
 			for (Block block: sideBlocks)
@@ -260,7 +265,7 @@ public class PongExtension extends Canvas implements KeyListener, Runnable
 			if (!paddleToBlock) paddle.moveLeftAndDraw(graphToBack);
 		}
 		
-		if (keys[3]==true && paddle.getX()<(800-paddle.getWidth()))
+		if (keys[3]==true && paddle.getX()<(wall.getWidth()-paddle.getWidth()))
 		{
 			boolean paddleToBlock=false;
 			for (Block block: sideBlocks)

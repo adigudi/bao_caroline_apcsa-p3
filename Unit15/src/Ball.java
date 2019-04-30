@@ -110,27 +110,26 @@ public class Ball extends Block implements Collidable
 				&& (getY()+getHeight())>other.getY());
 	}
 	
-	public boolean didCollideTop(Object obj)
-	{
-		Block other = (Block)obj;
-		return (getY() >= (other.getY() - getHeight() - Math.abs(getYSpeed()))
-				&& getY() < (other.getY() + other.getHeight() + Math.abs(getYSpeed())) 
-				&& (getX()>=other.getX()
-				&& getX()<=(other.getX()+other.getWidth())
-				&& (getX()+getWidth())>=other.getX()
-				&& (getX()+getWidth())<=other.getX()+other.getWidth()));
-	}
-	
 	public boolean didCollideBottom(Object obj)
 	{
-		
 		Block other = (Block)obj;
 		return (getY() > (other.getY() - getHeight() - Math.abs(getYSpeed()))
 				&& getY() <= (other.getY() + other.getHeight() + Math.abs(getYSpeed())) 
-				&& (getX()>=other.getX()
-				&& getX()<=(other.getX()+other.getWidth())
-				&& (getX()+getWidth())>=other.getX()
-				&& (getX()+getWidth())<=other.getX()+other.getWidth()));
+				&& (getY()>=other.getY()
+				&& getX()<(other.getX()+other.getWidth())
+				&& (getX()+getWidth())>other.getX()
+				&& (getX()+getWidth())<other.getX()+other.getWidth()));
+	}
+	
+	public boolean didCollideTop(Object obj)
+	{
+		
+		Block other = (Block)obj;
+		return (getY() <= (other.getY() + other.getHeight() + Math.abs(getYSpeed()))
+				&& getY() > (other.getY() - getHeight() - Math.abs(getYSpeed()))
+				&& getY()<=(other.getY())
+				&& getX()<(other.getX()+other.getWidth())
+				&& (getX()+getWidth())>other.getX());
 	}
 
 	public String toString()
